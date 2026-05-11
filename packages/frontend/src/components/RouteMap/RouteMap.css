@@ -1,0 +1,60 @@
+.route-map {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.route-map__info {
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: #1a1a1a;
+}
+
+.route-map__container {
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.route-map__leaflet {
+  height: 360px;
+  width: 100%;
+}
+
+.route-map__actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.route-map__btn {
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background 0.15s;
+}
+
+.route-map__btn--discard {
+  background: transparent;
+  border: 1px solid #e0e0e0;
+  color: #666666;
+}
+
+.route-map__btn--discard:hover {
+  border-color: #c62828;
+  color: #c62828;
+}
+
+.route-map__btn--save {
+  background: #ff6b35;
+  color: #ffffff;
+}
+
+.route-map__btn--save:hover {
+  background: #e55a25;
+}

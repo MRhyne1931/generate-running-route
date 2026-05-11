@@ -1,0 +1,13 @@
+{
+  "name": "generate-running-route",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/frontend",
+    "packages/backend"
+  ],
+  "scripts": {
+    "start": "npm run start --workspace=packages/backend & npm run start --workspace=packages/frontend",
+    "test": "npm run test --workspaces --if-present"
+  }
+}
