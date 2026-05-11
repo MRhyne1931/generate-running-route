@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 const config = require('../config');
 const { METERS_PER_MILE } = require('../middleware/validation');
 
-const ORS_DIRECTIONS_URL = 'https://api.openrouteservice.org/v2/directions/foot-walking';
+const ORS_DIRECTIONS_URL = 'https://api.openrouteservice.org/v2/directions/foot-walking/geojson';
 
 async function generateRoute({ requestedDistanceMiles, startLat, startLng }) {
   const requestedMeters = Math.round(requestedDistanceMiles * METERS_PER_MILE);
