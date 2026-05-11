@@ -14,7 +14,7 @@ function FitBounds({ path }) {
   return null;
 }
 
-function RouteMap({ generatedRoute, onSave, onDiscard }) {
+function RouteMap({ generatedRoute, onSave, onDiscard, viewOnly }) {
   const { actualDistanceMiles, path, startLat, startLng } = generatedRoute;
   const center = [startLat, startLng];
 
@@ -42,12 +42,20 @@ function RouteMap({ generatedRoute, onSave, onDiscard }) {
         </MapContainer>
       </div>
       <div className="route-map__actions">
-        <button className="route-map__btn route-map__btn--discard" onClick={onDiscard}>
-          Discard
-        </button>
-        <button className="route-map__btn route-map__btn--save" onClick={onSave}>
-          Save Route
-        </button>
+        {viewOnly ? (
+          <button className="route-map__btn route-map__btn--discard" onClick={onDiscard}>
+            Close
+          </button>
+        ) : (
+          <>
+            <button className="route-map__btn route-map__btn--discard" onClick={onDiscard}>
+              Discard
+            </button>
+            <button className="route-map__btn route-map__btn--save" onClick={onSave}>
+              Save Route
+            </button>
+          </>
+        )}
       </div>
     </div>
   );

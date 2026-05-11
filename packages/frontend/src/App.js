@@ -14,6 +14,7 @@ function App() {
   const [error, setError] = useState(null);
   const [formInputs, setFormInputs] = useState(null);
   const [pendingDeleteId, setPendingDeleteId] = useState(null);
+  const [viewingRoute, setViewingRoute] = useState(null);
 
   useEffect(() => {
     fetchRoutes()
@@ -100,7 +101,7 @@ function App() {
           </div>
         )}
         {loading && <LoadingSpinner />}
-        {!loading && !generatedRoute && (
+        {!loading && !generatedRoute && !viewingRoute && (
           <RouteForm
             onSubmit={handleFormSubmit}
             initialValues={formInputs}
@@ -114,12 +115,24 @@ function App() {
             onDiscard={handleDiscard}
           />
         )}
+        {viewingRoute && (
+          <RouteMap
+            generatedRoute={viewingRoute}
+            onDiscard={() => setViewingRoute(null)}
+            viewOnly
+          />
+        )}
         <RouteList
           routes={routes}
           pendingDeleteId={pendingDeleteId}
           onDeleteRequest={(id) => setPendingDeleteId(id)}
           onDeleteConfirm={handleDeleteConfirm}
           onDeleteCancel={() => setPendingDeleteId(null)}
+          onView={(route) => setViewingRoute({
+            ...route,
+            startLat: route.startLocation.lat,
+            startLng: route.startLocation.lng,
+          })}
         />
       </main>
     </div>

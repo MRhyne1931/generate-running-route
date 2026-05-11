@@ -3,7 +3,7 @@ import RouteCard from '../RouteCard/RouteCard';
 import ConfirmDialog from '../ConfirmDialog/ConfirmDialog';
 import './RouteList.css';
 
-function RouteList({ routes, pendingDeleteId, onDeleteRequest, onDeleteConfirm, onDeleteCancel }) {
+function RouteList({ routes, pendingDeleteId, onDeleteRequest, onDeleteConfirm, onDeleteCancel, onView }) {
   return (
     <section className="route-list">
       <h2 className="route-list__heading">Saved Routes</h2>
@@ -13,7 +13,7 @@ function RouteList({ routes, pendingDeleteId, onDeleteRequest, onDeleteConfirm, 
         <ul className="route-list__items">
           {routes.map((route) => (
             <li key={route.id}>
-              <RouteCard route={route} onDeleteRequest={onDeleteRequest} />
+              <RouteCard route={route} onDeleteRequest={onDeleteRequest} onView={onView} />
             </li>
           ))}
         </ul>
